@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inscription gratuite — Jurapotes, le réseau social du Jura</title>
-<meta name="description" content="Inscris-toi gratuitement sur Jurapotes, le réseau social du Jura — et tente de gagner 1 AN DE PIZZA GRATUITE 🍕 ! Grand concours, tirage au sort le 15 juillet. Il suffit de s'inscrire.">
+<meta name="description" content="Inscris-toi gratuitement sur Jurapotes, le réseau social du Jura — et tente de gagner 1 AN DE PIZZA GRATUITE 🍕 ! Grand concours, tirage au sort le 30 octobre. Il suffit de s'inscrire.">
 <link rel="canonical" href="https://jurapotes.ch/inscription">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Jurapotes">
 <meta property="og:locale" content="fr_CH">
 <meta property="og:title" content="Inscription gratuite — Jurapotes, le réseau social du Jura">
-<meta property="og:description" content="Inscris-toi gratuitement sur Jurapotes, le réseau social du Jura — et tente de gagner 1 AN DE PIZZA GRATUITE 🍕 ! Grand concours, tirage au sort le 15 juillet. Il suffit de s'inscrire.">
+<meta property="og:description" content="Inscris-toi gratuitement sur Jurapotes, le réseau social du Jura — et tente de gagner 1 AN DE PIZZA GRATUITE 🍕 ! Grand concours, tirage au sort le 30 octobre. Il suffit de s'inscrire.">
 <meta property="og:url" content="https://jurapotes.ch/inscription">
 <meta property="og:image" content="https://jurapotes.ch/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Inscription gratuite — Jurapotes, le réseau social du Jura">
-<meta name="twitter:description" content="Inscris-toi gratuitement sur Jurapotes, le réseau social du Jura — et tente de gagner 1 AN DE PIZZA GRATUITE 🍕 ! Grand concours, tirage au sort le 15 juillet. Il suffit de s'inscrire.">
+<meta name="twitter:description" content="Inscris-toi gratuitement sur Jurapotes, le réseau social du Jura — et tente de gagner 1 AN DE PIZZA GRATUITE 🍕 ! Grand concours, tirage au sort le 30 octobre. Il suffit de s'inscrire.">
 <meta name="twitter:image" content="https://jurapotes.ch/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,10 +81,10 @@
     </a>
   </div>
   <div class="concours-cta">
-    <span class="cc-count" id="ccCount">⏳ Tirage au sort le 15 juillet</span>
+    <span class="cc-count" id="ccCount">⏳ Tirage au sort le 30 octobre</span>
     <span class="cc-hint">Pour participer, il suffit de t'inscrire ci-dessous 👇</span>
   </div>
-  <span class="cc-fine">*Tirage au sort parmi tous les membres inscrits au 15&nbsp;juillet&nbsp;2026. Lot offert par Tchie nos Pizzeria. Sans obligation d'achat.</span>
+  <span class="cc-fine">*Tirage au sort parmi tous les membres inscrits au 30&nbsp;octobre&nbsp;2026. Lot offert par Tchie nos Pizzeria. Sans obligation d'achat.</span>
 
   <div class="auth-card">
     <h2>Rejoins les potes 👋</h2>
@@ -156,15 +156,15 @@
 document.addEventListener("DOMContentLoaded",function(){
   (async()=>{ await JP.loadMe(); if(JP.user()) location.href='fil.html'; })();
 
-  /* ---- Concours : compte à rebours jusqu'au tirage du 15 juillet ---- */
+  /* ---- Concours : compte à rebours jusqu'au tirage du 30 octobre ---- */
   (function(){
     const el=document.getElementById('ccCount'); if(!el) return;
-    const draw=new Date(2026,6,15,23,59,59);            // 6 = juillet
+    const draw=new Date(2026,9,30,23,59,59);            // 9 = octobre
     const ms=draw-new Date();
     if(ms<=0){ el.textContent='🎉 Concours terminé — merci à tous !'; return; }
     const days=Math.ceil(ms/86400000);
-    if(days<=1) el.textContent='⏳ DERNIER JOUR pour t\'inscrire — tirage ce 15 juillet !';
-    else el.textContent='⏳ Tirage le 15 juillet — plus que '+days+' jours pour participer';
+    if(days<=1) el.textContent='⏳ DERNIER JOUR pour t\'inscrire — tirage ce 30 octobre !';
+    else el.textContent='⏳ Tirage le 30 octobre — plus que '+days+' jours pour participer';
   })();
   JP.fillCommuneSelect(document.getElementById('town'), {first:'Choisis ta commune…'});
   const err=document.getElementById('err');
