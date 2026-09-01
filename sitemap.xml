@@ -2,43 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jurapotes.ch/</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://jurapotes.ch/inscription.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://jurapotes.ch/inscription</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://jurapotes.ch/connexion.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://jurapotes.ch/connexion</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://jurapotes.ch/faq.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://jurapotes.ch/faq</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jurapotes.ch/publicite.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://jurapotes.ch/publicite</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jurapotes.ch/mentions-legales.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://jurapotes.ch/mentions-legales</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://jurapotes.ch/confidentialite.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <loc>https://jurapotes.ch/confidentialite</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

@@ -1,27 +1,13 @@
 User-agent: *
 Allow: /
 
-# Pages réservées aux membres (contenu derrière authentification) — inutile de les indexer
-Disallow: /fil.html
-Disallow: /amis.html
-Disallow: /groupes.html
-Disallow: /groupe.html
-Disallow: /pages.html
-Disallow: /marketplace.html
-Disallow: /evenements.html
-Disallow: /evenement.html
-Disallow: /messages.html
-Disallow: /notifications.html
-Disallow: /profil.html
-Disallow: /membre.html
-Disallow: /parametres.html
-Disallow: /recherche.html
-Disallow: /post.html
-Disallow: /banni.html
-Disallow: /offline.html
-
-# Pages d'administration (privées)
-Disallow: /panneau-hcm-7x2k9.html
-Disallow: /regie-hcm-7x2k9.html
+# Les pages réservées aux membres (fil, messages, profils, groupes…) et les pages
+# d'administration portent une balise <meta name="robots" content="noindex,nofollow">.
+# Elles doivent rester crawlables : si on les bloquait ici, Google ne pourrait pas
+# lire cette balise et continuerait à afficher leurs URL dans ses résultats.
+#
+# À noter : Cloudflare Pages sert les pages sans l'extension .html
+# (/fil.html redirige vers /fil), donc une règle Disallow: /fil.html
+# ne bloquerait de toute façon pas l'URL réellement servie.
 
 Sitemap: https://jurapotes.ch/sitemap.xml
