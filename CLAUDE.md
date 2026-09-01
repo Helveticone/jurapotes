@@ -6,7 +6,7 @@ Site **statique** (HTML/CSS/JS) + **Supabase** (Postgres + Auth + Storage + Real
 ## Stack & déploiement
 - **Front** : pages `.html` à la racine + `assets/` (`app.supabase.js`, `nav.js`, `style.css`, `config.js`, `bell.js`, `moderation.js`, `pwa.js`, `supabase.min.js`).
 - **Back** : Supabase. Clé **anon** publique dans `assets/config.js` (normal ; la sécurité = **RLS**). JAMAIS de clé service_role côté client.
-- **Hébergement** : Cloudflare Pages, **déploiement auto à chaque push sur `main`**. Repo : `Helveticone/jurapotes`. Prod : https://jurapotes-betatest.pages.dev
+- **Hébergement** : Cloudflare Pages, **déploiement auto à chaque push sur `main`**. Repo : `Helveticone/jurapotes`. Prod : **https://jurapotes.ch** (ancienne URL `jurapotes-betatest.pages.dev`, ne plus utiliser ni citer dans les pages).
 - Pas de build. `sw.js` est neutralisé (se désinstalle).
 
 ## Architecture front
@@ -56,7 +56,12 @@ Auth, profils (avatar/couverture recadrables), fil (posts multi-photos, réactio
 - **Sous-commentaires illimités** : arbre récursif (fil.html/post.html), `Répondre` cible `data-parent=id`, indentation plafonnée (`var --cind`).
 - **Modération renforcée** (section 38 : `banned_words` + `mod_queue` + trigger `flag_banned_words`, RLS `is_admin()`) : auto-signalement (sans blocage) ; `JP.listBannedWords/addBannedWord/removeBannedWord/modQueue/resolveModItem/adminDeleteComment` ; onglets Signalements/File d'attente/Mots interdits dans `panneau-hcm-7x2k9.html`.
 - **Pages publiques** : `faq.html` (à tenir à jour à chaque feature), `publicite.html` (onglets Format/Formats à fournir/Tarifs/Règles — **ne jamais citer un autre réseau social** ; promotion hors annonce supprimable sans avertissement).
-- **SEO** (domaine cible **jurapotes.ch**) : `robots.txt` (bloque l'espace membre + admin), `sitemap.xml`, canonical + meta description + OG/Twitter + JSON-LD (WebSite/Organization) sur les pages publiques. Pubs : insertion `insertFeedAds` idempotente + dédoublonnage + jeton anti-course.
+- **SEO** (domaine **jurapotes.ch**) : `sitemap.xml` + canonical + meta description + OG/Twitter (image `og.png` 1200×630, `summary_large_image`) + JSON-LD (WebSite/Organization) sur les 7 pages publiques ; `404.html` (sans elle, Cloudflare Pages renvoie l'accueil en 200 sur n'importe quelle URL inconnue).
+  - **Désindexation de l'espace membre = `<meta name="robots" content="noindex,nofollow">` dans chaque page, PAS un `Disallow` dans `robots.txt`.** Deux raisons : (1) Cloudflare Pages sert les URL sans extension (`/fil.html` → 308 → `/fil`), donc `Disallow: /fil.html` ne bloque pas l'URL réellement servie ; (2) une page bloquée au crawl ne peut pas être lue, donc Google n'y verrait jamais le `noindex` et garderait son URL dans ses résultats. Le `robots.txt` ne contient donc plus aucun `Disallow` — il n'expose plus non plus les URL d'administration. **Toute nouvelle page réservée aux membres doit recevoir le `noindex` dès sa création.**
+  - Canonical et `sitemap.xml` s'écrivent **sans `.html`** (`https://jurapotes.ch/faq`) : c'est la forme réellement servie, sinon toutes les URL du sitemap redirigent.
+  - Cloudflare injecte son propre bloc « Managed robots.txt » avant le nôtre (Content-Signal + blocage des robots d'IA) : normal, sans effet sur Googlebot.
+  - Reste à faire : redirection 301 de `www.jurapotes.ch` vers `jurapotes.ch` (Redirect Rule dans le dashboard Cloudflare — impossible depuis `_redirects`, qui ne filtre pas par nom d'hôte).
+- **Pubs** : insertion `insertFeedAds` idempotente + dédoublonnage + jeton anti-course.
 
 ## Reste à faire
 Digest e-mail quotidien (optionnel, via `pg_cron` au lieu d'un mail par notif). Sinon : peaufinage lancement.
